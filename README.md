@@ -26,7 +26,7 @@ npm test           # test end-to-end con Playwright
 
 ## Messa online
 
-1. **Server.** Pubblica questo repository su un hosting Node con disco persistente (Railway, Render, Fly.io…). Con Railway: *New Project → Deploy from GitHub repo*, aggiungi un **Volume** montato su `/data`, poi *Settings → Networking → Generate Domain*. Imposta le variabili d'ambiente di `.env.example`.
+1. **Server.** Gratis: segui [deploy/ORACLE.md](deploy/ORACLE.md) (Oracle Cloud Always Free). In alternativa pubblica questo repository su un hosting Node con disco persistente (Railway, Render, Fly.io…). Con Railway: *New Project → Deploy from GitHub repo*, aggiungi un **Volume** montato su `/data`, poi *Settings → Networking → Generate Domain*. Imposta le variabili d'ambiente di `.env.example`.
 2. **App Shopify.** Nel [Dev Dashboard](https://dev.shopify.com/dashboard) crea un'app, copia *Client ID* e *Secret* nelle variabili `SHOPIFY_API_KEY` / `SHOPIFY_API_SECRET` del server. In `shopify.app.toml` metti il Client ID e l'indirizzo del server, poi:
    ```bash
    npm install -g @shopify/cli
