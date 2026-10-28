@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="shopify-api-key" content="__API_KEY__">
+  __APP_BRIDGE__
+  <title>Replay visitatori</title>
+  <script>window.REPLAY_EMBEDDED = __EMBEDDED__;</script>
+  <link rel="stylesheet" href="/vendor/rrweb.css">
+  <link rel="stylesheet" href="/vendor/player.css">
+  <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <header class="sidebar-head">
+        <div class="counter"><span class="dot"></span><strong id="online-count">0</strong> online ora</div>
+        <div class="filters" role="tablist">
+          <button data-range="online" class="active">Online</button>
+          <button data-range="1">24 ore</button>
+          <button data-range="7">7 giorni</button>
+          <button data-range="30">30 giorni</button>
+        </div>
+      </header>
+      <ul id="sessions" class="sessions"></ul>
+      <p id="empty" class="empty" hidden>Nessun visitatore in questo periodo.</p>
+    </aside>
+
+    <main class="main">
+      <div id="placeholder" class="placeholder">
+        <h2>Scegli un visitatore</h2>
+        <p>A sinistra trovi chi è sul negozio adesso (pallino verde) e le sessioni passate. Clicca per guardarlo dal vivo o rivedere la sessione.</p>
+      </div>
+
+      <section id="viewer" class="viewer" hidden>
+        <header class="viewer-head">
+          <div>
+            <h2 id="v-title"></h2>
+            <p id="v-sub" class="muted"></p>
+          </div>
+          <div class="viewer-actions">
+            <span id="v-mode" class="badge"></span>
+            <button id="btn-live" hidden>Torna al live</button>
+            <button id="btn-replay">Rivedi dall'inizio</button>
+          </div>
+        </header>
+        <div class="viewer-body">
+          <div id="stage" class="stage"></div>
+          <aside class="pages">
+            <h3>Pagine visitate</h3>
+            <ol id="v-pages"></ol>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/vendor/rrweb.js"></script>
+  <script src="/vendor/player.js"></script>
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>

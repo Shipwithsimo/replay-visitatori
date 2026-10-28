@@ -1,0 +1,32 @@
+{%- comment -%}
+  App embed: loads the session recorder on every storefront page.
+  Turn it on in Online Store > Themes > Customize > App embeds.
+{%- endcomment -%}
+{%- assign endpoint = block.settings.endpoint | strip -%}
+{%- unless request.design_mode or endpoint == blank -%}
+  <script>
+    window.ReplayConfig = {
+      endpoint: {{ endpoint | json }},
+      shop: {{ shop.permanent_domain | json }},
+      country: {{ localization.country.iso_code | json }},
+      template: {{ template.name | json }},
+      customer: {% if customer %}{ name: {{ customer.name | json }}, email: {{ customer.email | json }} }{% else %}null{% endif %}
+    };
+  </script>
+  <script src="{{ endpoint }}/recorder.js" defer></script>
+{%- endunless -%}
+
+{% schema %}
+{
+  "name": "Replay visitatori",
+  "target": "body",
+  "settings": [
+    {
+      "type": "text",
+      "id": "endpoint",
+      "label": "Indirizzo del server Replay",
+      "info": "Esempio: https://replay-production.up.railway.app"
+    }
+  ]
+}
+{% endschema %}

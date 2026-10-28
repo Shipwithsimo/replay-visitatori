@@ -1,0 +1,26 @@
+{
+  "name": "replay-visitatori",
+  "version": "1.0.0",
+  "description": "Shopify app: live view and replay of storefront visitors",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "DEV_NO_AUTH=1 node --watch server/index.js",
+    "test": "node test/e2e.mjs",
+    "deploy": "shopify app deploy"
+  },
+  "dependencies": {
+    "@rrweb/record": "^2.2.0",
+    "better-sqlite3": "^12.11.1",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "rrweb": "^2.2.0",
+    "rrweb-player": "^2.2.0",
+    "ws": "^8.22.0"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  }
+}
